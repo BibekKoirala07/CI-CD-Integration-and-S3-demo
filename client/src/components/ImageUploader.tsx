@@ -52,10 +52,9 @@ const ImageUploader: React.FC = () => {
       });
 
       console.log("uploadResponse:", uploadResponse);
-      const uploadData = await uploadResponse.json();
-      console.log("uploadData:", uploadData);
 
       if (!uploadResponse.ok) {
+        console.log("it was here");
         throw new Error(`Upload failed with status ${uploadResponse.status}`);
       }
 
