@@ -5,9 +5,9 @@ on:
     branches:
       - main
 
-env: 
+env:
   CI: false
-  
+
 jobs:
   build:
     name: Build
@@ -20,16 +20,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.20.5' 
+          node-version: "18.20.5"
           cache: "npm"
-          cache-dependency-path: './client/package-lock.json'
+          cache-dependency-path: "./client/package-lock.json"
 
       - name: Install Dependencies
         working-directory: client
         run: npm install
 
       - name: Build Frontend
-        working-directory: client 
+        working-directory: client
         env:
           VITE_NODE_ENV: ${{ secrets.VITE_NODE_ENV }}
           VITE_PROD_BACKEND_URL: ${{ secrets.VITE_PROD_BACKEND_URL }}
@@ -40,8 +40,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          # personal_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub automatically provides this token for use
-          path: client/dist  # The folder with your built frontend assets
+          path: client/dist # The folder with your built frontend assets
 
   deploy:
     name: Deploy
@@ -56,8 +55,10 @@ jobs:
           name: production-files
           path: ./dist
 
-      - name: Deploy to Github pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        with: 
-          github_token: ${{ secrets.TOKEN }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages # Specify the branch to deploy to
+          force_orphan: true # Create an orphan branch if gh-pages doesn't exist

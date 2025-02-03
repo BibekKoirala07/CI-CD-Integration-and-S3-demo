@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://BibekKoirala07.github.io/school-app",
+  "homepage": "https://bibekkoirala07.github.io/School-App",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
