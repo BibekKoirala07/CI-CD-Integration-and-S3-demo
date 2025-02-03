@@ -40,25 +40,25 @@ const ImageUploader: React.FC = () => {
       console.log("response:", response);
       console.log("data", data);
 
-      const url = data.url;
+      // const url = data.url;
 
-      const uploadResponse = await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": selectedFile.type,
-        },
-        body: selectedFile,
-      });
+      // const uploadResponse = await fetch(url, {
+      //   method: "PUT",
+      //   headers: {
+      //     "Content-Type": selectedFile.type,
+      //   },
+      //   body: selectedFile,
+      // });
 
-      const uploadData = await uploadResponse.json();
-      console.log("uploadResponse:", uploadResponse);
-      console.log("uploadData:", uploadData);
+      // const uploadData = await uploadResponse.json();
+      // console.log("uploadResponse:", uploadResponse);
+      // console.log("uploadData:", uploadData);
 
-      if (!uploadResponse.ok) {
-        throw new Error(`Upload failed with status ${uploadResponse.status}`);
-      }
+      // if (!uploadResponse.ok) {
+      //   throw new Error(`Upload failed with status ${uploadResponse.status}`);
+      // }
 
-      alert("Image uploaded successfully!");
+      alert("Image uploaded successfully! Reload to see change");
       setSelectedFile(null);
       setPreviewUrl(null);
     } catch (error) {
