@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImageUploader from "./components/ImageUploader";
 import ImageGallery from "./components/ImageGallery";
 import "./App.css";
 import Navbar from "./components/Navbar";
 
 const App: React.FC = () => {
+  const [hasRefreshed, setHasRefreshed] = useState(false);
+
+  useEffect(() => {
+    if (!hasRefreshed) {
+      setTimeout(() => {
+        setHasRefreshed(true);
+        window.location.reload();
+      }, 3000);
+    }
+  }, []);
   return (
     <div>
       <Navbar />

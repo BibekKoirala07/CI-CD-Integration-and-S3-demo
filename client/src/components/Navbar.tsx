@@ -75,15 +75,15 @@ const Navbar = () => {
                 onClick={() => setIsAuthenticated(false)}
                 className="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-red-500 hover:bg-red-600"
               >
-                Logout
+                button
               </button>
             ) : (
               <>
                 <button className="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-green-500 hover:bg-green-600">
-                  Login
+                  button
                 </button>
                 <button className="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-yellow-500 hover:bg-yellow-600">
-                  Register
+                  button
                 </button>
               </>
             )}
